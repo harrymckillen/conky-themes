@@ -239,7 +239,7 @@ function draw_lines(display)
     
     -- gpu line
     draw_line(display, 75, 300, 270, 300)
-    draw_line(display, 270, 300, 322, 248)
+    draw_line(display, 270, 300, 322, 250)
 
     -- ram line 
     draw_line(display, 75, 20, 250, 20)
