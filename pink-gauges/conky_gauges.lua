@@ -19,6 +19,8 @@ local line_alpha = 0.75
 
 local filesystem = '/' -- root filesystem
 
+local segment_thickness = 3.6
+
 
 --------------------------------------------------------------------------------
 --                                                                    gauge DATA
@@ -29,7 +31,7 @@ gauge = {
     graph_radius=graph_radius+50,
     graph_thickness=base_graph_thickness*4,
     graph_start_angle=225,
-    graph_unit_angle=1.8,          graph_unit_thickness=1.8,
+    graph_unit_angle=segment_thickness,          graph_unit_thickness=segment_thickness,
     graph_bg_colour=base_colour,      graph_bg_alpha=0.1,
     graph_fg_colour=base_colour,      graph_fg_alpha=0.8,
     hand_fg_colour=0xEF5A29,       hand_fg_alpha=0.0,
@@ -50,7 +52,7 @@ gauge = {
     graph_radius=graph_radius+25,
     graph_thickness=base_graph_thickness*4,
     graph_start_angle=15,
-    graph_unit_angle=1.8,          graph_unit_thickness=1.8,
+    graph_unit_angle=segment_thickness,          graph_unit_thickness=segment_thickness,
     graph_bg_colour=base_colour,      graph_bg_alpha=0.1,
     graph_fg_colour=base_colour,      graph_fg_alpha=0.8,
     hand_fg_colour=0xEF5A29,       hand_fg_alpha=0.0,
@@ -71,7 +73,7 @@ gauge = {
     graph_radius=graph_radius,
     graph_thickness=base_graph_thickness*4,
     graph_start_angle=310,
-    graph_unit_angle=1.8,          graph_unit_thickness=1.8,
+    graph_unit_angle=segment_thickness,          graph_unit_thickness=segment_thickness,
     graph_bg_colour=base_colour,      graph_bg_alpha=0.1,
     graph_fg_colour=base_colour,      graph_fg_alpha=0.8,
     hand_fg_colour=0xEF5A29,       hand_fg_alpha=0.0,
