@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if ! playerctl status &>/dev/null; then
+  echo "\${offset 70}\${voffset 50}\${font1}No active media player"
   exit 0
 fi
 
@@ -15,11 +16,6 @@ shorten() {
 }
 
 IFS='|' read -r status title artist album arturl <<< "$(playerctl metadata --format '{{status}}|{{title}}|{{artist}}|{{album}}|{{mpris:artUrl}}')"
-
-if [[ -z "$status" ]]; then
-  echo "\${offset 70}\${voffset 50}\${font1}No active media player"
-  exit 0
-fi
 
 echo -e "\${offset 100}\${voffset 10}\${font1}STATUS: \${font}${status^^}\n"
 echo "\${offset 100}\${voffset -10}\${font1}Track: \${font}$(shorten "$title")"
