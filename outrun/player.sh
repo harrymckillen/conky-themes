@@ -7,7 +7,7 @@ fi
 
 shorten() {
   local text="$1"
-  local maxlen=24
+  local maxlen=22
   if (( ${#text} > maxlen )); then
     echo "${text:0:maxlen}..."
   else
@@ -19,13 +19,13 @@ IFS='|' read -r status title artist album arturl <<< "$(playerctl metadata --for
 
 offset=10
 if [[ -n "$arturl" ]]; then
-  offset=100
+  offset=116
 fi
 
-echo -e "\${offset $offset}\${voffset 10}\${font1}STATUS: \${font}${status^^}\n"
-echo "\${offset $offset}\${voffset -10}\${font1}Track: \${font}$(shorten ${title:-Unknown})"
+echo -e "\${offset $offset}\${voffset 12}\${font1}STATUS: \${font}${status^^}\n"
+echo "\${offset $offset}\${voffset -10}\${font1}Track: \${font}$(shorten "${title:-Unknown}")"
 echo "\${offset $offset}\${font1}Artist: \${font}$(shorten "${artist:-Unknown}")"
-echo "\${offset $offset}\${font1}Album: \${font}$(shorten "${album:-Unknown}")"
+echo "\${offset $offset}\${font1}Album: \${font}$(shorten "${album:-Unknown}")\${voffset -10}"
 
 # Download cover only if URL is not empty and has changed
 if [[ -n "$arturl" ]]; then
@@ -33,5 +33,5 @@ if [[ -n "$arturl" ]]; then
     curl -s "$arturl" -o /tmp/conky_cover.jpg
     echo "$arturl" > /tmp/conky_cover.url
   fi
-  echo "\${image /tmp/conky_cover.jpg -p 5,10 -s 80x80 -n}"
+  echo "\${image /tmp/conky_cover.jpg -p 3,2 -s 100x100 -n}"
 fi
